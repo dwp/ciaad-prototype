@@ -110,6 +110,8 @@ app.set('view engine', 'html')
 
 // Middleware to serve static assets
 app.use('/public', express.static(path.join(__dirname, '/public')))
+app.use('/js/autocomplete.js', express.static(path.join(__dirname, '/node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.js')))
+app.use('/css/autocomplete.css', express.static(path.join(__dirname, '/node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.css')))
 
 // Serve govuk-frontend in from node_modules (so not to break pre-extenstions prototype kits)
 app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))

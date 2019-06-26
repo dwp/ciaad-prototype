@@ -1,0 +1,13 @@
+.autocomplete--result-name {
+  font-family: 'nta', 'Arial', 'sans-serif';
+}
+.autocomplete--result-address {
+  color: #6f777b;
+  font-family: 'nta', 'Arial', 'sans-serif';
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.autocomplete__option--focused, .autocomplete__option:hover .autocomplete--result-address {
+  color: #fff;
+}
