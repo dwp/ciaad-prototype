@@ -11,9 +11,18 @@
       
       {# Most recent #}
       {% set mostRecent = true %}
-      {% include "_prototype-notes/hospital-lookup/version-1.html" %}
+      {% include "_design-notes/child-death-journey/version-1.html" %}
       {% set mostRecent = false %}
       
+      <h2 class="govuk-heading-l">Previous iterations</h2>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Hospital lookup
+          </span>
+        </summary>
+          {% include "_design-notes/hospital-lookup/version-1.html" %}
+      </details>
     </div>
 </div>
 
