@@ -342,7 +342,7 @@ $(document).on('keyup', function(e) {
       if (noListItems) {
         $('.autocomplete__menu').css({'display':'none'})
       }
-    }, 2000)
+    }, 500)
 })
 
 $(document).on('click', '.autocomplete__menu li', function () {

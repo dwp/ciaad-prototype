@@ -1,0 +1,70 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Information sent"
+      }) }}
+
+      <p class="govuk-body">
+        We have all the information we need now.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next?</h2>
+      <p class="govuk-body">
+        We will write to let you know when benefit payments will stop.
+      </p>
+
+      <h2 class="govuk-heading-m">Next steps</h2>
+      <p class="govuk-body">
+        You can check if you can get any financial help by:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          visiting your local jobcentre for advice on what benefits you could 
+          be entitled to
+        </li>
+        <li>
+          using an independent benefits calculator at 
+          www.gov.uk/benefits-calculators
+        </li>
+        <li>
+          contacting your local council to see if you can get help to pay 
+          Council Tax
+        </li>
+      </ul>
+      
+      <p class="govuk-body">
+        Citizens Advice can also give you support and guidance.
+      </p>
+
+      <h2 class="govuk-heading-m">Emotional support</h2>
+      <p class="govuk-body">
+        You can contact Cruse Bereavement Care, a voluntary organisation, for 
+        emotional help and support during a bereavement.
+      </p>
+      
+      <p>
+        <span class="govuk-!-font-weight-bold">Telephone: </span>
+        <span class="govuk-body">0808 808 1677 </span>
+      </p>
+
+      <p>
+        <span class="govuk-!-font-weight-bold">Email: </span>
+        <span class="govuk-body">helpline@cruse.org.uk </span>
+      </p>
+
+      <a href="http://localhost:3001/prototype-admin/clear-data">Back to start</a>
+    </div>
+  </div>
+
+{% endblock %}

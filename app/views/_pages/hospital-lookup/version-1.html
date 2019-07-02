@@ -10,44 +10,46 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      {% set yesHTML %}
-        <div class="hospital-wrapper">
-          <label class="govuk-label" for="autocomplete-customTemplates">Hospital name (optional)</label>
-          <div id="tt-customTemplates" class="autocomplete-wrapper"></div>
-        </div>
-      {% endset -%}
+      <form method="post">
+        {% set yesHTML %}
+          <div class="hospital-wrapper">
+            <label class="govuk-label" for="autocomplete-customTemplates">Hospital name (optional)</label>
+            <div id="tt-customTemplates" class="autocomplete-wrapper"></div>
+          </div>
+        {% endset -%}
 
-      {{ govukRadios({
-        idPrefix: "did-they-die-in-hospital-conditional",
-        name: "did-they-die-in-hospital",
-        fieldset: {
-          legend: {
-            text: "Did they die in hospital?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: yesHTML
+        {{ govukRadios({
+          idPrefix: "did-they-die-in-hospital-conditional",
+          name: "did-they-die-in-hospital",
+          fieldset: {
+            legend: {
+              text: "Did they die in hospital?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
           },
-          {
-            value: "no",
-            text: "No"
-          }
-        ]
-      }) }}
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
 
+      </div>
     </div>
-  </div>
 
 {% endblock %}
 
