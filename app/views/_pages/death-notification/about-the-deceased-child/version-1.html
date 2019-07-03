@@ -113,31 +113,33 @@
               }
             ]
           }) }}
-          {{ govukCheckboxes({
-            idPrefix: "benefits",
-            name: "deceased[benefits]",
+          {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "deceaseds-education",
+            name: "deceased[benefits][]",
             fieldset: {
               legend: {
-                text: "Benefits they were getting or waiting to hear about",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--s"
+                text: "Is the deceased getting Disability Living Allowance for children?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
               }
-            },
-            hint: {
-              text: "Select all that apply."
             },
             items: [
               {
                 value: "Disability Living Allowance Child",
-                text: "Disability Living Allowance Child"
+                text: "Yes"
               },
               {
                 value: "None",
-                text: "None"
+                text: "No"
+              },
+              {
+                value: "Unknown",
+                text: "I don't know"
               }
             ]
           }) }}
-          
+      
           {{ govukButton({
           text: "Continue"
         }) }}
