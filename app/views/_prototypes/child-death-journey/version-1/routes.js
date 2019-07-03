@@ -31,21 +31,7 @@ router.post('/start-page', (req, res) => {
     return res.redirect('about-the-deceased-child')
   }
   if (scenario === '2') {
-    return res.redirect('full-time-education')
-  }
-  if (scenario === '3') {
-    return res.redirect('about-the-deceased-working-age')
-  }
-})
-
-router.get('/full-time-education', (req, res) => {
-  res.render('_pages/death-notification/full-time-education/version-1')
-})
-router.post('/full-time-education', (req, res) => {
-  if (req.body.deceased.education === 'yes') {
-    res.redirect('about-the-deceased-child')
-  } else {
-    res.redirect('Not a child')
+    return res.redirect('about-the-deceased-16-19')
   }
 })
 
@@ -53,7 +39,18 @@ router.get('/about-the-deceased-child', (req, res) => {
   res.render('_pages/death-notification/about-the-deceased-child/version-1')
 })
 router.post('/about-the-deceased-child', (req, res) => {
-  if (req.body.deceased.benefits.includes('dla-child')) {
+  if (req.body.deceased.benefits.includes('Disability Living Allowance Child')) {
+    res.redirect('is-there-a-carer')
+  } else {
+    res.redirect('check-your-answers')
+  }
+})
+
+router.get('/about-the-deceased-16-19', (req, res) => {
+  res.render('_pages/death-notification/about-the-deceased-16-19/version-1')
+})
+router.post('/about-the-deceased-16-19', (req, res) => {
+  if (req.body.deceased.benefits.includes('Disability Living Allowance Child')) {
     res.redirect('is-there-a-carer')
   } else {
     res.redirect('check-your-answers')
@@ -119,7 +116,7 @@ router.get('/fill-dummy-data', (req, res) => {
       },
       "nino": "aa123456a",
       "benefits": [
-        "dla-child"
+        "Disability Living Allowance Child"
       ],
       "dod": {
         "day": "2",
