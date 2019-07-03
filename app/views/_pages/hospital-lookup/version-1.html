@@ -20,7 +20,7 @@
 
         {{ govukRadios({
           idPrefix: "did-they-die-in-hospital-conditional",
-          name: "did-they-die-in-hospital",
+          name: "hospital[did-they-die-in-hospital]",
           fieldset: {
             legend: {
               text: "Did they die in hospital?",
@@ -30,14 +30,14 @@
           },
           items: [
             {
-              value: "yes",
+              value: "Yes",
               text: "Yes",
               conditional: {
                 html: yesHTML
               }
             },
             {
-              value: "no",
+              value: "No",
               text: "No"
             }
           ]
@@ -57,24 +57,3 @@
   <script type="text/javascript" src="/js/autocomplete.js"></script>
   <script type="text/javascript" src="/public/javascripts/hospital-lookup-v1.js"></script>
 {% endblock %}
-
-{% block footer %}
-    {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          },
-          {
-            href: "#",
-            text: "Disable hospital API"
-          }
-        ]
-      }
-    }) }}
-  {% endblock %}

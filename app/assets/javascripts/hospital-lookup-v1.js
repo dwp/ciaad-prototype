@@ -322,6 +322,7 @@ accessibleAutocomplete({
   element: element,
   showNoOptionsFound: false,
   id: id,
+  name: 'hospital[name]',
   source: customSuggest,
   templates: {
     inputValue: inputValueTemplate,

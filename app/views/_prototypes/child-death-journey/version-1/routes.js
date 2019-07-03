@@ -3,6 +3,7 @@ const router = express.Router()
 
 router.use((req, res, next) => {
   res.locals.scenario = req.session.data.scenario || '1'
+  res.locals.dummyData = '/prototypes/child-death-journey/version-1/fill-dummy-data'
   next()
 })
 
@@ -100,6 +101,52 @@ router.post('/declaration', (req, res) => {
 
 router.get('/complete', (req, res) => {
   res.render('_pages/complete/version-1')
+})
+
+router.get('/fill-dummy-data', (req, res) => {
+  req.session.data = {
+    "caller": {
+      "name": "John Smith",
+      "phone": "0191 1234567",
+      "relationship": "Parent"
+    },
+    "deceased": {
+      "name": "Joe Smith",
+      "dob": {
+        "day": "1",
+        "month": "1",
+        "year": "2000"
+      },
+      "nino": "aa123456a",
+      "benefits": [
+        "dla-child"
+      ],
+      "dod": {
+        "day": "2",
+        "month": "2",
+        "year": "2019"
+      }
+    },
+    "security": {
+      "passed1": "yes"
+    },
+    "address-line-1": "1 Some street",
+    "address-line-2": "Some estate",
+    "address-town": "A town",
+    "address-county": "County something",
+    "address-postcode": "NE29 1AA",
+    "carer": {
+      "exists": "Yes",
+      "who": "caller",
+      "name": ""
+    },
+    "hospital": {
+      "did-they-die-in-hospital": "Yes",
+      "name": "Nuffield Health, Newcastle-upon-Tyne Hospital"
+    }
+  }
+  const url = req.headers.referer || '/'
+  return res.redirect(url)
 })
 
 module.exports = router
