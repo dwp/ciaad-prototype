@@ -133,12 +133,12 @@ router.get('/fill-dummy-data', (req, res) => {
     "address-county": "County something",
     "address-postcode": "NE29 1AA",
     "carer": {
-      "exists": "Yes",
+      "exists": "yes",
       "who": "caller",
       "name": ""
     },
     "hospital": {
-      "did-they-die-in-hospital": "Yes",
+      "did-they-die-in-hospital": "yes",
       "name": "Nuffield Health, Newcastle-upon-Tyne Hospital"
     }
   }

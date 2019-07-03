@@ -16,22 +16,22 @@
             Full name
           </dd>
           <dt class="govuk-body">
-            {{deceased.name or 'John Smith'}}
+            {{data.deceased.name or 'John Smith'}}
           </dt>
 
           <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
             Date of birth
           </dd>
           <dt class="govuk-body">
-            {{deceased.dob[0] or '31'}} / 
-            {{deceased.dob[1] or '1'}} / 
-            {{deceased.dob[2] or '1980'}}
+            {{data.deceased.dob[0] or '31'}} / 
+            {{data.deceased.dob[1] or '1'}} / 
+            {{data.deceased.dob[2] or '1980'}}
           </dt>
 
           <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
             National Insurance number
           </dd>
-          <dt class="govuk-body">{{deceased.nino or 'QQ1234567X'}}</dt>
+          <dt class="govuk-body">{{data.deceased.nino or 'QQ1234567X'}}</dt>
         </dl>
         
 
@@ -120,8 +120,8 @@
             fieldset: {
               legend: {
                 text: "Is the deceased getting Disability Living Allowance for children?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
               }
             },
             items: [
