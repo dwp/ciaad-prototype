@@ -42,7 +42,7 @@ router.get('/caller-benefits', (req, res) => {
   res.render('_pages/fep/caller-benefits/version-1')
 })
 router.post('/caller-benefits', (req, res) => {
-  if (req.body.fep.benefits.includes(`No, I don't get any of these benefits`)) {
+  if (req.body.deceased.benefits && req.body.fep.benefits.includes(`No, I don't get any of these benefits`)) {
     return res.redirect('not-eligible')
   }
   res.redirect('deceased-uk-resident')
