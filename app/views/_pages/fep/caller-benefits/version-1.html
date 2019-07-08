@@ -1,0 +1,99 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      
+      <form method="post">
+        {{ govukCheckboxes({
+          idPrefix: "benefits",
+          name: "fep[benefits]",
+          fieldset: {
+            legend: {
+              text: "Are you getting or waiting to hear about any of these benefits?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Child Tax Credit",
+              text: "Child Tax Credit"
+            },
+            {
+              value: "Housing Benefit",
+              text: "Housing Benefit"
+            },
+            {
+              value: "Income-based Jobseeker’s Allowance",
+              text: "Income-based Jobseeker’s Allowance"
+            },
+            {
+              value: "Income-related Employment and Support Allowance",
+              text: "Income-related Employment and Support Allowance"
+            },
+            {
+              value: "Income Support",
+              text: "Income Support"
+            },
+            {
+              value: "Pension Credit",
+              text: "Pension Credit"
+            },
+            {
+              value: "Support for Mortgage Interest loan",
+              text: "Support for Mortgage Interest loan"
+            },
+            {
+              value: "Universal Credit",
+              text: "Universal Credit"
+            },
+            {
+              value: "Working Tax Credit including a disability or severe disability element",
+              text: "Working Tax Credit including a disability or severe disability element"
+            },
+            {
+              value: "No, I don't get any of these benefits",
+              text: "No, I don't get any of these benefits"
+            }
+          ]
+        }) }}
+      
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+Housing Benefit
+Income-based Jobseeker's Allowance
+Income-related Employment and Support Allowance
+Income Support
+Pension Credit
+Support for Mortgage Interest loan
+Universal Credit
+Working Tax Credit including a disability or severe disability element
+No, I don't get any of these benefits
+Continue

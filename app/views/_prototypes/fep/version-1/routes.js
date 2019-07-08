@@ -31,5 +31,11 @@ router.post('/do-you-live-in-scotland', (req, res) => {
 router.get('/caller-benefits', (req, res) => {
   res.render('_pages/fep/caller-benefits/version-1')
 })
+router.post('/caller-benefits', (req, res) => {
+  if (req.body.fep.benefits.includes(`No, I don't get any of these benefits`)) {
+    return res.redirect('phone-scotland')
+  }
+  res.redirect('deceased-uk-resident')
+})
 
 module.exports = router
