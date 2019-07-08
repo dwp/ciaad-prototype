@@ -38,4 +38,14 @@ router.post('/caller-benefits', (req, res) => {
   res.redirect('deceased-uk-resident')
 })
 
+router.get('/deceased-uk-resident', (req, res) => {
+  res.render('_pages/fep/deceased-uk-resident/version-1')
+})
+router.post('/deceased-uk-resident', (req, res) => {
+  if (req.body.fep['deceased-ordinarily-resident'] === 'no') {
+    return res.redirect('not-eligible')
+  }
+  res.redirect('funeral-location')
+})
+
 module.exports = router
