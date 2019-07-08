@@ -15,6 +15,16 @@ router.get('/start-page', (req, res) => {
   res.render('_pages/fep/start-page/version-1')
 })
 router.post('/start-page', (req, res) => {
+  res.redirect('funeral-responsibility')
+})
+
+router.get('/funeral-responsibility', (req, res) => {
+  res.render('_pages/fep/funeral-responsibility/version-1')
+})
+router.post('/funeral-responsibility', (req, res) => {
+  if (req.body.fep['responsible-for-funeral'] === 'no') {
+    return res.redirect('not-eligible')
+  }
   res.redirect('do-you-live-in-scotland')
 })
 
