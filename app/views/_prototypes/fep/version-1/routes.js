@@ -14,5 +14,22 @@ router.get('/', (req, res) => {
 router.get('/start-page', (req, res) => {
   res.render('_pages/fep/start-page/version-1')
 })
+router.post('/start-page', (req, res) => {
+  res.redirect('do-you-live-in-scotland')
+})
+
+router.get('/do-you-live-in-scotland', (req, res) => {
+  res.render('_pages/fep/do-you-live-in-scotland/version-1')
+})
+router.post('/do-you-live-in-scotland', (req, res) => {
+  if (req.body.fep['live-in-scotland'] === 'yes') {
+    return res.redirect('phone-scotland')
+  }
+  res.redirect('caller-benefits')
+})
+
+router.get('/caller-benefits', (req, res) => {
+  res.render('_pages/fep/caller-benefits/version-1')
+})
 
 module.exports = router
