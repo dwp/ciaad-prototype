@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-l">
+        About the claimant
+      </h1>
+      
+      <form method="post">
+        {{ govukInput({
+          label: {
+            text: "National Insurance number"
+          },
+          id: "caller-nino",
+          name: "fep[nino]",
+          classes: "govuk-!-width-three-quarters"
+        }) }}
+        {{ govukDateInput({
+          id: "caller-dob",
+          fieldset: {
+            legend: {
+              text: "Date of birth",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 31 3 2018"
+          },
+          items: [
+            {
+              label: "Day",
+              name: "fep[dob][day]",
+              classes: "govuk-input--width-2"
+            },
+            {
+              label: "Month",
+              name: "fep[dob][month]",
+              classes: "govuk-input--width-2"
+            },
+            {
+              label: "year",
+              name: "fep[dob][year]",
+              classes: "govuk-input--width-4"
+            }
+          ]
+        }) }}
+      
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

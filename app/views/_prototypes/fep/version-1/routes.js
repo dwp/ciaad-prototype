@@ -61,8 +61,22 @@ router.post('/funeral-location', (req, res) => {
 router.get('/fulltime-education', (req, res) => {
   res.render('_pages/fep/fulltime-education/version-1')
 })
-router.post('/funeral-location', (req, res) => {
+router.post('/fulltime-education', (req, res) => {
   res.redirect('funeral-date')
+})
+
+router.get('/funeral-date', (req, res) => {
+  res.render('_pages/fep/funeral-date/version-1')
+})
+router.post('/funeral-date', (req, res) => {
+  res.redirect('about-the-claimant')
+})
+
+router.get('/about-the-claimant', (req, res) => {
+  res.render('_pages/fep/about-the-claimant/version-1')
+})
+router.post('/about-the-claimant', (req, res) => {
+  res.redirect('meh')
 })
 
 module.exports = router
