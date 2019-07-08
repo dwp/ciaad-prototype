@@ -48,4 +48,14 @@ router.post('/deceased-uk-resident', (req, res) => {
   res.redirect('funeral-location')
 })
 
+router.get('/funeral-location', (req, res) => {
+  res.render('_pages/fep/funeral-location/version-1')
+})
+router.post('/funeral-location', (req, res) => {
+  if (req.body.fep['funeral-in-uk'] === 'no') {
+    return res.redirect('funera-held-in-eea')
+  }
+  res.redirect('full-time-education')
+})
+
 module.exports = router
