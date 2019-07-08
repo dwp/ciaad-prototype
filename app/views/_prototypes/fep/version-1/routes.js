@@ -55,7 +55,14 @@ router.post('/funeral-location', (req, res) => {
   if (req.body.fep['funeral-in-uk'] === 'no') {
     return res.redirect('funera-held-in-eea')
   }
-  res.redirect('full-time-education')
+  res.redirect('fulltime-education')
+})
+
+router.get('/fulltime-education', (req, res) => {
+  res.render('_pages/fep/fulltime-education/version-1')
+})
+router.post('/funeral-location', (req, res) => {
+  res.redirect('funeral-date')
 })
 
 module.exports = router
