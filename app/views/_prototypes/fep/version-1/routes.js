@@ -33,7 +33,7 @@ router.get('/caller-benefits', (req, res) => {
 })
 router.post('/caller-benefits', (req, res) => {
   if (req.body.fep.benefits.includes(`No, I don't get any of these benefits`)) {
-    return res.redirect('phone-scotland')
+    return res.redirect('not-eligible')
   }
   res.redirect('deceased-uk-resident')
 })
