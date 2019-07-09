@@ -9,16 +9,16 @@
     name: 'Name',
     dob: 'Date of birth',
     nino: 'National Insurance number',
-    benefits: 'Benefits',
+    benefits: 'Benefits they were getting',
     dod: 'Date of death'
   },
   carer: {
-    exists: 'Is there a carer?',
-    who: 'Who is the carer',
-    name: 'Name'
+    exists: "Someone is getting Carer's Allowance",
+    who: "Person getting Carer's Allowance",
+    name: "Carer's name"
   },
   hospital: {
-    'did-they-die-in-hospital': 'Did they die in hospital?',
+    'did-they-die-in-hospital': 'Died in hospital',
     name: 'Hospital name'
   }
 }%}
@@ -122,13 +122,9 @@
         </dl>
       {% endif %}
 
-      <h2 class="govuk-heading-m">Now send your application</h2>
-
-      <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-
       <form method="post">
         <button type="submit" class="govuk-button">
-          Accept and send
+          Continue
         </button>
       </form>
 
