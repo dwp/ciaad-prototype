@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% set content = {
+  fep: {
+    "responsible-for-funeral": "Were you responsible for paying for the funeral?",
+    "live-in-scotland": "Do you live in Scotland?",
+    benefits: "Are you getting or waiting to hear about any of these benefits?",
+    "deceased-ordinarily-resident": "Did the person who died usually live in the UK?",
+    "funeral-in-uk": "Was the funeral held in the UK?",
+    "deceased-education": "Was the person who died in full-time education or training?",
+    "funeral-date-known": "Do you know the funeral date?",
+    "funeral-date": "Do you know the funeral date?",
+    nino: "Claimant National Insurance number",
+    dob: "Claimant date of birth"
+  }
+} %}
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Funeral Expenses Payment</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% for key, value in data.fep %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{content.fep[key]}}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if key === 'dob' or key === 'funeral-date' %}
+                {{value.day}} / {{value.month}} / {{value.year}}
+              {% else %}
+                {{value}}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        {% endfor %}
+      </dl>
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form method="post">
+        <button type="submit" class="govuk-button">
+          Accept and send
+        </button>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

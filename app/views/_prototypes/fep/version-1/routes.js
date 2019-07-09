@@ -42,7 +42,7 @@ router.get('/caller-benefits', (req, res) => {
   res.render('_pages/fep/caller-benefits/version-1')
 })
 router.post('/caller-benefits', (req, res) => {
-  if (req.body.deceased.benefits && req.body.fep.benefits.includes(`No, I don't get any of these benefits`)) {
+  if (req.body.fep.benefits && req.body.fep.benefits.includes(`No, I don't get any of these benefits`)) {
     return res.redirect('not-eligible')
   }
   res.redirect('deceased-uk-resident')
@@ -86,7 +86,14 @@ router.get('/about-the-claimant', (req, res) => {
   res.render('_pages/fep/about-the-claimant/version-1')
 })
 router.post('/about-the-claimant', (req, res) => {
-  res.redirect('meh')
+  res.redirect('check-your-answers')
+})
+
+router.get('/check-your-answers', (req, res) => {
+  res.render('_pages/fep/check-your-answers/version-1')
+})
+router.post('/check-your-answers', (req, res) => {
+  res.redirect('/prototypes/child-death-journey/version-2/declaration')
 })
 
 module.exports = router

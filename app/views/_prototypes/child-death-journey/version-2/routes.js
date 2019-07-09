@@ -8,11 +8,11 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  res.redirect('version-1/settings')
+  res.redirect('version-2/settings')
 })
 
 router.get('/settings', (req, res) => {
-  res.render('_prototypes/child-death-journey/version-1/settings')
+  res.render('_prototypes/child-death-journey/version-2/settings')
 })
 router.post('/settings', (req, res) => {
   res.redirect('start-cards')
@@ -85,7 +85,7 @@ router.get('/check-your-answers', (req, res) => {
   res.render('_pages/death-notification/check-your-answers/version-1')
 })
 router.post('/check-your-answers', (req, res) => {
-  res.redirect('declaration')
+  res.redirect('/prototypes/fep/version-1/start-page')
 })
 
 router.get('/declaration', (req, res) => {
