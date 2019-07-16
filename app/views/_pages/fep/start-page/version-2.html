@@ -1,0 +1,85 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+        Funeral Expenses Payment
+      </h1>
+      <strong class="govuk-tag govuk-tag govuk-tag--neutral eligibility-tag govuk-!-margin-bottom-5" id="eligibility-completed">
+        Potentially eligible
+      </strong>
+
+      <p>The caller is potentially eligible if they:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>get certain benefits or tax credits</li>
+        <li>are arranging the funeral and it's in the UK, European Economic Area or Switzerland</li>
+      </ul>
+
+      <details class="govuk-details" role="group">
+        <summary class="govuk-details__summary" role="button" aria-controls="details-content-dc379259-d218-46c4-bbb0-c3b244ef7d59" aria-expanded="false">
+          <span class="govuk-details__summary-text">
+            Which countries are in the EEA?
+          </span>
+        </summary>
+        <div class="govuk-details__text" id="details-content-dc379259-d218-46c4-bbb0-c3b244ef7d59" aria-hidden="true">
+          Austria, Belgium, Bulgaria, Croatia, Republic of Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden and the UK.
+        </div>
+      </details>
+      
+      <h2 class="govuk-heading-m">
+        What they could get
+      </h2>
+      
+      <p>
+        They may get help to pay for:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          burial or cremation fees
+        </li>
+        <li>
+          death certificates and other documents
+        </li>
+      </ul>
+
+      <p>
+        They could get up to £700 to pay for other funeral costs such as the 
+        coffin, flowers and funeral director’s fees.
+      </p>
+
+      <p>
+        There’s no fixed amount that they can get. It’s based on individual 
+        circumstances. It will not cover the full cost of the funeral.
+      </p>
+
+      
+      <form method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+      
+      <a href="/skip">Skip this page</a>
+    </div>
+  </div>
+
+{% endblock %}
