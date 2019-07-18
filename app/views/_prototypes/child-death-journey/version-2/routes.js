@@ -36,20 +36,20 @@ router.post('/start-page', (req, res) => {
 })
 
 router.get('/about-the-deceased-child', (req, res) => {
-  res.render('_pages/death-notification/about-the-deceased-child/version-1')
+  res.render('_pages/death-notification/about-the-deceased-child/version-2')
 })
 router.post('/about-the-deceased-child', (req, res) => {
-  if (req.body.deceased.benefits && req.body.deceased.benefits.includes('Disability Living Allowance Child')) {
+  if (req.body.deceased.benefits && req.body.deceased.benefits.includes('Disability Living Allowance')) {
     return res.redirect('is-there-a-carer')
   }
   res.redirect('check-your-answers')
 })
 
 router.get('/about-the-deceased-16-19', (req, res) => {
-  res.render('_pages/death-notification/about-the-deceased-16-19/version-1')
+  res.render('_pages/death-notification/about-the-deceased-16-19/version-2')
 })
 router.post('/about-the-deceased-16-19', (req, res) => {
-  if (req.body.deceased.benefits && req.body.deceased.benefits.includes('Disability Living Allowance Child')) {
+  if (req.body.deceased.benefits && req.body.deceased.benefits.includes('Disability Living Allowance')) {
     res.redirect('is-there-a-carer')
   } else {
     res.redirect('check-your-answers')
@@ -115,7 +115,7 @@ router.get('/fill-dummy-data', (req, res) => {
       },
       "nino": "aa123456a",
       "benefits": [
-        "Disability Living Allowance Child"
+        "Disability Living Allowance"
       ],
       "dod": {
         "day": "2",
