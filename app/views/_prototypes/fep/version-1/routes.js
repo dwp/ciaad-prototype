@@ -83,7 +83,10 @@ router.post('/funeral-location', (req, res) => {
   if (req.body.fep['funeral-in-uk'] === 'no') {
     return res.redirect('funera-held-in-eea')
   }
-  res.redirect('fulltime-education')
+  if (req.data.session.data === '2') {
+    return res.redirect('fulltime-education')
+  }
+  res.redirect('about-the-claimant')
 })
 
 router.get('/fulltime-education', (req, res) => {
