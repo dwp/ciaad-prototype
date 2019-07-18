@@ -15,17 +15,6 @@ router.get('/start-page', (req, res) => {
   res.render('_pages/fep/start-page/version-1')
 })
 router.post('/start-page', (req, res) => {
-  res.redirect('funeral-responsibility')
-})
-
-router.get('/funeral-responsibility', (req, res) => {
-  res.render('_pages/fep/funeral-responsibility/version-1')
-})
-router.post('/funeral-responsibility', (req, res) => {
-  if (req.body.fep['responsible-for-funeral'] === 'no') {
-    req.session.data.fep.notEligible = "Not responsible for the funeral"
-    return res.redirect('not-eligible')
-  }
   res.redirect('do-you-live-in-scotland')
 })
 
@@ -35,6 +24,17 @@ router.get('/do-you-live-in-scotland', (req, res) => {
 router.post('/do-you-live-in-scotland', (req, res) => {
   if (req.body.fep['live-in-scotland'] === 'yes') {
     req.session.data.fep.notEligible = "Lives in scotland"
+    return res.redirect('not-eligible')
+  }
+  res.redirect('funeral-responsibility')
+})
+
+router.get('/funeral-responsibility', (req, res) => {
+  res.render('_pages/fep/funeral-responsibility/version-1')
+})
+router.post('/funeral-responsibility', (req, res) => {
+  if (req.body.fep['responsible-for-funeral'] === 'no') {
+    req.session.data.fep.notEligible = "Not responsible for the funeral"
     return res.redirect('not-eligible')
   }
   res.redirect('caller-benefits')
@@ -59,6 +59,13 @@ router.post('/deceased-uk-resident', (req, res) => {
     req.session.data.fep.notEligible = "Deceased not a UK resident"
     return res.redirect('not-eligible')
   }
+  res.redirect('funeral-date')
+})
+
+router.get('/funeral-date', (req, res) => {
+  res.render('_pages/fep/funeral-date/version-1')
+})
+router.post('/funeral-date', (req, res) => {
   res.redirect('funeral-location')
 })
 
@@ -76,13 +83,6 @@ router.get('/fulltime-education', (req, res) => {
   res.render('_pages/fep/fulltime-education/version-1')
 })
 router.post('/fulltime-education', (req, res) => {
-  res.redirect('funeral-date')
-})
-
-router.get('/funeral-date', (req, res) => {
-  res.render('_pages/fep/funeral-date/version-1')
-})
-router.post('/funeral-date', (req, res) => {
   res.redirect('about-the-claimant')
 })
 
