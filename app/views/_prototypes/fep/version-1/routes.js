@@ -80,10 +80,11 @@ router.get('/funeral-location', (req, res) => {
   res.render('_pages/fep/funeral-location/version-1')
 })
 router.post('/funeral-location', (req, res) => {
+  const scenario = req.session.data.scenario || '1'
   if (req.body.fep['funeral-in-uk'] === 'no') {
     return res.redirect('funera-held-in-eea')
   }
-  if (req.data.session.data === '2') {
+  if (scenario === '2') {
     return res.redirect('fulltime-education')
   }
   res.redirect('about-the-claimant')
