@@ -24,9 +24,16 @@ router.get('/do-you-live-in-scotland', (req, res) => {
 router.post('/do-you-live-in-scotland', (req, res) => {
   if (req.body.fep['live-in-scotland'] === 'yes') {
     req.session.data.fep.notEligible = "Lives in scotland"
-    return res.redirect('not-eligible')
+    return res.redirect('scotland-kickout')
   }
   res.redirect('funeral-responsibility')
+})
+
+router.get('/scotland-kickout', (req, res) => {
+  res.render('_pages/fep/scotland-kickout/version-1')
+})
+router.post('/scotland-kickout', (req, res) => {
+  res.redirect('/prototypes/child-death-journey/version-2/declaration')
 })
 
 router.get('/funeral-responsibility', (req, res) => {

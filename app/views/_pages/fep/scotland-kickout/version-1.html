@@ -1,0 +1,49 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+        Funeral Expenses Payment
+      </h1>
+      <strong class="govuk-tag govuk-tag govuk-tag--neutral eligibility-tag govuk-!-margin-bottom-5" id="eligibility-completed">
+        Potentially eligible
+      </strong>
+
+      <p>
+        In Scotland, there is a different process for getting help to pay for a funeral.
+      </p>
+      
+      <p>
+        The caller needs to phone <span class="govuk-!-font-weight-bold">0800 014 7531</span>.
+      </p>
+      
+      <p>
+        It’s free to call this number from a mobile or landline.
+      </p>
+      
+      <form method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
