@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post">
+        <h2 class="govuk-heading-l">About the person who died</h2>
+        <dl>
+          <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
+            Full name
+          </dd>
+          <dt class="govuk-body">
+            {{data.deceased.name or 'John Smith'}}
+          </dt>
+
+          <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
+            Date of birth
+          </dd>
+          <dt class="govuk-body">
+            {{data.deceased.dob[0] or '31'}} / 
+            {{data.deceased.dob[1] or '1'}} / 
+            {{data.deceased.dob[2] or '1980'}}
+          </dt>
+
+          <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
+            National Insurance number
+          </dd>
+          <dt class="govuk-body">{{data.deceased.nino or 'QQ1234567X'}}</dt>
+        </dl>
+        
+
+        {% call govukFieldset({
+        classes: "govuk-!-width-two-thirds",
+        legend: {
+          text: "Address",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+        }) %}
+          {{ govukInput({
+            label: {
+              html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            },
+            id: "address-line-1",
+            name: "address-line-1"
+          }) }}
+          {{ govukInput({
+            label: {
+              html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+            },
+            id: "address-line-2",
+            name: "address-line-2"
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "Town or city"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-town",
+            name: "address-town"
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "County"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-county",
+            name: "address-county"
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "address-postcode",
+            name: "address-postcode"
+          }) }}
+        {% endcall %}
+
+        {{ govukDateInput({
+            id: "deceased-dod",
+            fieldset: {
+              legend: {
+                text: "Date of death",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            hint: {
+              text: "For example, 31 3 2018"
+            },
+            items: [
+              {
+                label: "Day",
+                name: "deceased[dod][day]",
+                classes: "govuk-input--width-2"
+              },
+              {
+                label: "Month",
+                name: "deceased[dod][month]",
+                classes: "govuk-input--width-2"
+              },
+              {
+                label: "year",
+                name: "deceased[dod][year]",
+                classes: "govuk-input--width-4"
+              }
+            ]
+          }) }}
+          {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "deceaseds-education",
+            name: "deceased[benefits][]",
+            fieldset: {
+              legend: {
+                text: "Were they getting Disability Living Allowance?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Disability Living Allowance",
+                text: "Yes"
+              },
+              {
+                value: "None",
+                text: "No"
+              },
+              {
+                value: "Not yet, but had applied",
+                text: "Not yet, but had applied"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "Unknown",
+                text: "I don't know"
+              }
+            ]
+          }) }}
+      
+          {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+</div>
+
+{% endblock %}
