@@ -18,14 +18,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      
+      {% if data.fep['funeral-date-is-in-the-future'] %}
+        {% set heading = "Is the funeral being held in the UK?" %}
+      {% else %}
+        {% set heading = "Was the funeral held in the UK?" %}
+      {% endif %}
+
       <form method="post">
         {{ govukRadios({
           idPrefix: "funeral-in-uk",
           name: "fep[funeral-in-uk]",
           fieldset: {
             legend: {
-              text: "Was the funeral held in the UK?",
+              text: heading,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

@@ -31,7 +31,7 @@ router.post('/do-you-live-in-scotland', (req, res) => {
 })
 
 router.get('/scotland-kickout', (req, res) => {
-  res.render('_pages/fep/scotland-kickout/version-2')
+  res.render('_pages/fep/scotland-kickout/version-1')
 })
 router.post('/scotland-kickout', (req, res) => {
   res.redirect('/prototypes/child-death-journey/version-2/declaration')
@@ -81,7 +81,7 @@ router.post('/funeral-date', (req, res) => {
 })
 
 router.get('/funeral-location', (req, res) => {
-  res.render('_pages/fep/funeral-location/version-2')
+  res.render('_pages/fep/funeral-location/version-1')
 })
 router.post('/funeral-location', (req, res) => {
   const scenario = req.session.data.scenario || '1'
