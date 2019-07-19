@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const {isAfter} = require('date-fns')
 
 router.use((req, res, next) => {
   res.locals.scenario = req.session.data.scenario || '1'
@@ -30,7 +31,7 @@ router.post('/do-you-live-in-scotland', (req, res) => {
 })
 
 router.get('/scotland-kickout', (req, res) => {
-  res.render('_pages/fep/scotland-kickout/version-1')
+  res.render('_pages/fep/scotland-kickout/version-2')
 })
 router.post('/scotland-kickout', (req, res) => {
   res.redirect('/prototypes/child-death-journey/version-2/declaration')
@@ -73,11 +74,14 @@ router.get('/funeral-date', (req, res) => {
   res.render('_pages/fep/funeral-date/version-1')
 })
 router.post('/funeral-date', (req, res) => {
+  const fd = req.body.fep['funeral-date']
+  const funeralDateIsInTheFuture = isAfter(new Date(fd.year, fd.month, fd.day), new Date())
+  req.session.data.fep['funeral-date-is-in-the-future'] = funeralDateIsInTheFuture
   res.redirect('funeral-location')
 })
 
 router.get('/funeral-location', (req, res) => {
-  res.render('_pages/fep/funeral-location/version-1')
+  res.render('_pages/fep/funeral-location/version-2')
 })
 router.post('/funeral-location', (req, res) => {
   const scenario = req.session.data.scenario || '1'
