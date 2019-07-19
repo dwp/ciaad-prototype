@@ -10,7 +10,12 @@
     "funeral-date-known": "Do you know the funeral date?",
     "funeral-date": "Do you know the funeral date?",
     nino: "Claimant National Insurance number",
-    dob: "Claimant date of birth"
+    dob: "Claimant date of birth",
+    "address-line-1": "Address line 1",
+    "address-line-2": "Address line 2",
+    "address-town": "Town",
+    "address-county": "County",
+    "address-postcode": "Postcode"
   }
 } %}
 {% block pageTitle %}
@@ -30,24 +35,26 @@
       <h2 class="govuk-heading-m">Funeral Expenses Payment</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         {% for key, value in data.fep %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              {{content.fep[key]}}
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if key === 'dob' or key === 'funeral-date' %}
-                {{value.day}} / {{value.month}} / {{value.year}}
-              {% else %}
-                {{value}}
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden"> name</span>
-              </a>
-            </dd>
-          </div>
+          {% if value != "" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {{content.fep[key]}}
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if key === 'dob' or key === 'funeral-date' %}
+                  {{value.day}} / {{value.month}} / {{value.year}}
+                {% else %}
+                  {{value}}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+          {% endif %}
         {% endfor %}
       </dl>
 
