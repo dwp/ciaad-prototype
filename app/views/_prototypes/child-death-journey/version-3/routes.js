@@ -68,7 +68,7 @@ router.get('/is-there-a-carer', (req, res) => {
   res.render('_pages/death-notification/is-there-a-carer/version-2')
 })
 router.post('/is-there-a-carer', (req, res) => {
-  if (req.body.carer.exists === 'yes') {
+  if (req.body.carer.exists === 'yes' || req.body.carer.exists === 'not yet, but had applied') {
     res.redirect('carer-details')
   } else {
     res.redirect('check-your-answers')

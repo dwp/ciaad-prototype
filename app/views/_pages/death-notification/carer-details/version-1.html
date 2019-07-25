@@ -10,6 +10,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
+      {% if data.carer.exists === 'yes' %}
+        {% set title = "Who is getting Carer's Allowance?" %}
+      {% else %}
+        {% set title = "Who has applied for Carer's Allowance?" %}
+      {% endif %}
+
       <form method="post">
         {% set carerName %}
           {{ govukInput({
@@ -29,7 +35,7 @@
           name: "carer[who]",
           fieldset: {
             legend: {
-              text: "Who is getting Carer's Allowance?",
+              text: title,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
