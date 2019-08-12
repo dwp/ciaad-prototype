@@ -13,14 +13,8 @@ router.use((req, res, next) => {
   next()
 })
 
-// Child death prototypes
-router.use(/\/prototypes\/child-death-journey\/version-([0-9]+)/, (req, res, next) => {
-  return require(`./views/_prototypes/child-death-journey/version-${req.params[0]}/routes`)(req, res, next);
-})
-
-// FEP prototypes
-router.use(/\/prototypes\/fep\/version-([0-9]+)/, (req, res, next) => {
-  return require(`./views/_prototypes/fep/version-${req.params[0]}/routes`)(req, res, next);
+router.use(/\/prototypes\/(.*)\/version-([0-9]+)/, (req, res, next) => {
+  return require(`./views/_prototypes/${req.params[0]}/version-${req.params[1]}/routes`)(req, res, next);
 })
 
 module.exports = router

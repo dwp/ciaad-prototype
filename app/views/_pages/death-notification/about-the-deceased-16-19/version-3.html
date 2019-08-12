@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post">
+        <h2 class="govuk-heading-l">About the person who died</h2>
+        <dl>
+          <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
+            Full name
+          </dd>
+          <dt class="govuk-body">
+            {{deceased.name or 'John Smith'}}
+          </dt>
+
+          <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
+            Date of birth
+          </dd>
+          <dt class="govuk-body">
+            {{deceased.dob[0] or '31'}} / 
+            {{deceased.dob[1] or '1'}} / 
+            {{deceased.dob[2] or '1980'}}
+          </dt>
+
+          <dd class="govuk-fieldset__legend--s govuk-!-margin-0">
+            National Insurance number
+          </dd>
+          <dt class="govuk-body">{{deceased.nino or 'QQ1234567X'}}</dt>
+        </dl>
+        
+
+        {% call govukFieldset({
+        classes: "govuk-!-width-two-thirds",
+        legend: {
+          text: "Address",
+          classes: "govuk-fieldset__legend--s",
+          isPageHeading: false
+        }
+        }) %}
+          {{ govukInput({
+            label: {
+              html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            },
+            id: "address-line-1",
+            name: "address-line-1"
+          }) }}
+          {{ govukInput({
+            label: {
+              html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            },
+            id: "address-line-1",
+            name: "address-line-1"
+          }) }}
+          {{ govukInput({
+            label: {
+              html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+            },
+            id: "address-line-2",
+            name: "address-line-2"
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "Town or city"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-town",
+            name: "address-town"
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "County"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "address-county",
+            name: "address-county"
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "address-postcode",
+            name: "address-postcode"
+          }) }}
+        {% endcall %}
+
+        {{ govukDateInput({
+            id: "deceased-dod",
+            fieldset: {
+              legend: {
+                text: "Date of death",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            hint: {
+              text: "For example, 31 3 2018"
+            },
+            items: [
+              {
+                label: "Day",
+                name: "deceased[dod][day]",
+                classes: "govuk-input--width-2"
+              },
+              {
+                label: "Month",
+                name: "deceased[dod][month]",
+                classes: "govuk-input--width-2"
+              },
+              {
+                label: "year",
+                name: "deceased[dod][year]",
+                classes: "govuk-input--width-4"
+              }
+            ]
+          }) }}
+<p>
+          // If CIS down<br />
+          Benefits they were getting or waiting to hear about.
+</p>
+<p>
+          We can't check benefits on cis right now.<br />
+          Enter benefits manually
+</p>
+
+
+          {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+</div>
+
+{% endblock %}
