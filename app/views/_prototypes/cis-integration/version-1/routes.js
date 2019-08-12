@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/settings', (req, res) => {
-  res.render('_prototypes/child-death-journey/version-2/settings')
+  res.render('_prototypes/cis-integration/version-1/settings')
 })
 router.post('/settings', (req, res) => {
   res.redirect('start-cards')
@@ -27,12 +27,7 @@ router.get('/start-page', (req, res) => {
 })
 router.post('/start-page', (req, res) => {
   const scenario = res.locals.scenario
-  if (scenario === '1') {
-    return res.redirect('about-the-deceased-child')
-  }
-  if (scenario === '2') {
-    return res.redirect('about-the-deceased-16-19')
-  }
+  res.redirect('about-the-deceased-16-19')
 })
 
 router.get('/about-the-deceased-child', (req, res) => {

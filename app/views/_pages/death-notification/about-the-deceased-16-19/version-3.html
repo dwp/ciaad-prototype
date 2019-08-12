@@ -120,15 +120,94 @@
               }
             ]
           }) }}
-<p>
-          // If CIS down<br />
-          Benefits they were getting or waiting to hear about.
-</p>
-<p>
-          We can't check benefits on cis right now.<br />
-          Enter benefits manually
-</p>
 
+          {% set hintHTML %}
+            <p>
+              We can't check benefits on CIS right now. Enter benefits manually.
+            </p>
+            <span id="benefits-hint" class="govuk-hint">
+              Select all that apply.
+            </span>
+          {% endset %}
+          
+          {% if data.scenario === '2' %}
+            {{ govukCheckboxes({
+              idPrefix: "benefits",
+              name: "deceased[benefits]",
+              fieldset: {
+                legend: {
+                  text: "Benefits they were getting or waiting to hear about",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                html: hintHTML
+              },
+              items: [
+                {
+                  value: "Bereavement benefits",
+                  text: "Bereavement benefits"
+                },
+                {
+                  value: "Bereavement Support Payment",
+                  text: "Bereavement Support Payment"
+                },
+                {
+                  value: "Carer's Allowance",
+                  text: "Carer's Allowance"
+                },
+                {
+                  value: "Disability Living Allowance",
+                  text: "Disability Living Allowance"
+                },
+                {
+                  value: "Employment and Support Allowance",
+                  text: "Employment and Support Allowance"
+                },
+                {
+                  value: "Incapacity Benefit",
+                  text: "Incapacity Benefit"
+                },
+                {
+                  value: "Income Support",
+                  text: "Income Support"
+                },
+                {
+                  value: "Industrial Injury Disablement Allowances",
+                  text: "Industrial Injury Disablement Allowances"
+                },
+                {
+                  value: "Jobseeker’s Allowance",
+                  text: "Jobseeker’s Allowance"
+                },
+                {
+                  value: "Maternity Allowance",
+                  text: "Maternity Allowance"
+                },
+                {
+                  value: "Personal Independence Payment",
+                  text: "Personal Independence Payment"
+                },
+                {
+                  value: "Severe Disability Allowance",
+                  text: "Severe Disability Allowance"
+                },
+                {
+                  value: "Universal Credit",
+                  text: "Universal Credit"
+                },
+                {
+                  value: "Widowed Parents ALlowance",
+                  text: "Widowed Parents ALlowance"
+                },
+                {
+                  value: "None",
+                  text: "None"
+                }
+              ]
+            }) }}
+          {% endif %}
 
           {{ govukButton({
           text: "Continue"
