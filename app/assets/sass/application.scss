@@ -21,3 +21,14 @@ $govuk-global-styles: true;
 .govuk-tag.govuk-tag--neutral {
   background-color: #006435;
 }
+.govuk-tag.govuk-tag--warning {
+  background-color: $govuk-error-colour;
+}
+
+.warning-banner--grey {
+  background-color: $govuk-border-colour;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin-bottom: 50px;
+}

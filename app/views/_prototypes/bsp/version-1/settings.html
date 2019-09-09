@@ -1,54 +1,50 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: back
-  }) }}
-{% endblock %}
-
-
 {% block content %}
-  
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      
       <form method="post">
         {{ govukRadios({
-          idPrefix: "live-in-uk",
-          name: "fep[deceased-ordinarily-resident]",
+          idPrefix: "settings",
+          name: "scenario",
           fieldset: {
             legend: {
-              text: "Did the person who died usually live in the UK?",
+              text: "Settings",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+              classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
             {
-              value: "yes",
-              text: "Yes"
+              value: "1",
+              text: "Scenario 1"
             },
             {
-              value: "no",
-              text: "No"
+              value: "2",
+              text: "Scenario 2"
+            },
+            {
+              value: "3",
+              text: "Scenario 3"
+            },
+            {
+              value: "4",
+              text: "Scenario 4"
             }
           ]
         }) }}
-      
+
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
-
-      <a href="skip-fep">Skip FEP - caller does not want to apply</a>
     </div>
-  </div>
+</div>
 
 {% endblock %}

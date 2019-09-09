@@ -1,0 +1,92 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      
+      <h1 class="govuk-heading-l">
+        Check claimant's State Pension age
+      </h1>
+
+      {{ govukDateInput({
+        id: "claimant-dob",
+        fieldset: {
+          legend: {
+            text: "Claimant's date of birth",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        },
+        items: [
+          {
+            label: "Day",
+            name: "bsp[dob][day]",
+            classes: "govuk-input--width-2"
+          },
+          {
+            label: "Month",
+            name: "bsp[dob][month]",
+            classes: "govuk-input--width-2"
+          },
+          {
+            label: "year",
+            name: "bsp[dob][year]",
+            classes: "govuk-input--width-4"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+          idPrefix: "claimant-sex",
+          name: "bsp[sex]",
+          fieldset: {
+            legend: {
+              text: "Claimant's sex",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "male",
+              text: "Male",
+              conditional: {
+                html: dateHtml
+              }
+            },
+            {
+              value: "female",
+              text: "Female"
+            }
+          ]
+        }) }}
+      
+      <form method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      <a href="skip-bsp">Skip BSP - caller does not want to apply</a>
+    </div>
+  </div>
+
+{% endblock %}

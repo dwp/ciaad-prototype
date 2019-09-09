@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/start-page', (req, res) => {
-  res.render('_pages/fep/start-page/version-1')
+  res.render('_pages/fep/start-page/version-2')
 })
 router.post('/start-page', (req, res) => {
   res.redirect('do-you-live-in-scotland')

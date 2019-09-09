@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+        Bereavement Support Payment
+      </h1>
+      <strong class="govuk-tag govuk-tag govuk-tag--warning eligibility-tag govuk-!-margin-bottom-5" id="eligibility-completed">
+        Not eligible
+      </strong>
+      
+      <p>
+        Only the spouse or civil partner of the person who died can claim Bereavement Support Payment.
+      </p>
+
+      <form method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

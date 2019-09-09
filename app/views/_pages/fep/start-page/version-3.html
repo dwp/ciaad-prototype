@@ -17,8 +17,17 @@
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-      
+
+      <div class="warning-banner--grey">
+        <div class="govuk-warning-text govuk-!-margin-bottom-0">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            Caller does not want to apply for Bereavement Support Payment<br />
+            No details will be sent
+          </strong>
+        </div>
+      </div>
+
       <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
         Funeral Expenses Payment
       </h1>
@@ -70,7 +79,6 @@
         There’s no fixed amount that they can get. It’s based on individual 
         circumstances. It will not cover the full cost of the funeral.
       </p>
-
       
       <form method="post">
         {{ govukButton({
