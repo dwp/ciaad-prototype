@@ -27,14 +27,11 @@ router.post('/do-you-live-in-scotland', (req, res) => {
     req.session.data.fep.notEligible = "Lives in scotland"
     return res.redirect('complete')
   }
-  res.redirect('funeral-responsibility')
+  res.redirect('caller-benefits')
 })
 
 router.get('/complete', (req, res) => {
   res.render('_pages/complete/version-2')
-})
-router.post('/scotland-kickout', (req, res) => {
-  res.redirect('/prototypes/child-death-journey/version-2/declaration')
 })
 
 router.get('/funeral-responsibility', (req, res) => {
@@ -45,7 +42,7 @@ router.post('/funeral-responsibility', (req, res) => {
     req.session.data.fep.notEligible = "Not responsible for the funeral"
     return res.redirect('not-eligible')
   }
-  res.redirect('complete')
+  res.redirect('deceased-uk-resident')
 })
 
 router.get('/caller-benefits', (req, res) => {
@@ -56,7 +53,7 @@ router.post('/caller-benefits', (req, res) => {
     req.session.data.fep.notEligible = "Not on benefits"
     return res.redirect('not-eligible')
   }
-  res.redirect('deceased-uk-resident')
+  res.redirect('funeral-date')
 })
 
 router.get('/deceased-uk-resident', (req, res) => {
@@ -67,7 +64,7 @@ router.post('/deceased-uk-resident', (req, res) => {
     req.session.data.fep.notEligible = "Deceased not a UK resident"
     return res.redirect('not-eligible')
   }
-  res.redirect('funeral-date')
+  res.redirect('funeral-location')
 })
 
 router.get('/funeral-date', (req, res) => {
@@ -77,7 +74,7 @@ router.post('/funeral-date', (req, res) => {
   const fd = req.body.fep['funeral-date']
   const funeralDateIsInTheFuture = isAfter(new Date(fd.year, fd.month, fd.day), new Date())
   req.session.data.fep['funeral-date-is-in-the-future'] = funeralDateIsInTheFuture
-  res.redirect('funeral-location')
+  res.redirect('funeral-responsibility')
 })
 
 router.get('/funeral-location', (req, res) => {
@@ -91,7 +88,7 @@ router.post('/funeral-location', (req, res) => {
   if (scenario === '2') {
     return res.redirect('fulltime-education')
   }
-  res.redirect('about-the-claimant')
+  res.redirect('check-your-answers')
 })
 
 router.get('/fulltime-education', (req, res) => {
