@@ -1,0 +1,53 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+        Funeral Expenses Payment
+      </h1>
+      <strong class="govuk-tag govuk-tag govuk-tag--neutral eligibility-tag govuk-!-margin-bottom-5" id="eligibility-completed">
+        Potentially eligible
+      </strong>
+
+      <p>The caller may be eligible, but at the moment we can only take details for adult deaths.</p>
+
+      <p>Use an electronic form (SF200) for this claimant.</p>
+
+      <h2 class="govuk-heading-s">If the caller lives in Scotland</h2>
+
+      <p>They need to apply for Funeral Support Payment (FSP) to get help with funeral costs.</p>
+
+      <p>
+        You should transfer them at the end of this call, or if they prefer, 
+        they can apply online at <span class="govuk-!-font-weight-bold">www.mygov.scot</span> 
+        or call <span class="govuk-!-font-weight-bold">0800 188 2222</span>.
+      </p>
+      
+      <form method="post">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+      
+      <a href="/skip">Skip Funeral Expenses Payment</a>
+    </div>
+  </div>
+
+{% endblock %}

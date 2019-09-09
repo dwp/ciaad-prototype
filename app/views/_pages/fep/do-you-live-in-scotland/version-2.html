@@ -1,0 +1,67 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: back
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {% set yesHTML %}
+        <p>
+          You need to apply for Funeral Support Payment (FSP). We’ll transfer you 
+          at the end of this call, or if you prefer, you can apply online at 
+          <span class="govuk-!-font-weight-bold">www.mygov.scot</span> or call 
+          <span class="govuk-!-font-weight-bold">0800 188 2222</span>.
+        </p>
+      {% endset -%}
+
+
+      <form method="post">
+        {{ govukRadios({
+          idPrefix: "live-in-scotland",
+          name: "fep[live-in-scotland]",
+          fieldset: {
+            legend: {
+              text: "Do you live in Scotland?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "There’s a different process to get help with funeral costs in Scotland."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHTML
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+      
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
