@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/start-page', (req, res) => {
-  res.render('_pages/fep/start-page/version-2')
+  res.render('_pages/fep/start-page/version-1')
 })
 router.post('/start-page', (req, res) => {
   res.redirect('do-you-live-in-scotland')
@@ -25,7 +25,8 @@ router.get('/do-you-live-in-scotland', (req, res) => {
 router.post('/do-you-live-in-scotland', (req, res) => {
   if (req.body.fep['live-in-scotland'] === 'yes') {
     req.session.data.fep.notEligible = "Lives in scotland"
-    return res.redirect('complete')
+    return res.redirect('/prototypes/child-death-journey/version-2/declaration')
+
   }
   res.redirect('caller-benefits')
 })
