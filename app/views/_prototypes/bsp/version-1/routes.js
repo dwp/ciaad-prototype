@@ -64,7 +64,7 @@ router.get('/check-your-answers', (req, res) => {
   res.render('_pages/death-notification/check-your-answers/version-1')
 })
 router.post('/check-your-answers', (req, res) => {
-  res.redirect('/prototypes/fep/version-1/start-page')
+  res.redirect('/prototypes/child-death-journey/version-2/declaration')
 })
 
 router.get('/bsp-start-page', (req, res) => {
